@@ -3,10 +3,9 @@ package com.codingshuttle.youtube.hospitalManagement.service;
 import com.codingshuttle.youtube.hospitalManagement.dto.DoctorResponseDto;
 import com.codingshuttle.youtube.hospitalManagement.dto.OnboardDoctorRequestDto;
 import com.codingshuttle.youtube.hospitalManagement.entity.Doctor;
-import com.codingshuttle.youtube.hospitalManagement.entity.User;
 import com.codingshuttle.youtube.hospitalManagement.entity.type.RoleType;
 import com.codingshuttle.youtube.hospitalManagement.repository.DoctorRepository;
-import com.codingshuttle.youtube.hospitalManagement.repository.UserRepository;
+//import com.codingshuttle.youtube.hospitalManagement.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,7 +22,7 @@ public class DoctorService {
 
     private final DoctorRepository doctorRepository;
     private final ModelMapper modelMapper;
-    private final UserRepository userRepository;
+//    private final UserRepository userRepository;
 
     public List<DoctorResponseDto> getAllDoctors() {
         return doctorRepository.findAll()
@@ -33,7 +32,7 @@ public class DoctorService {
     }
 
 
-    @Transactional
+    /*@Transactional
     public DoctorResponseDto onBoardNewDoctor(OnboardDoctorRequestDto onBoardDoctorRequestDto) {
         User user = userRepository.findById(onBoardDoctorRequestDto.getUserId()).orElseThrow();
 
@@ -50,5 +49,5 @@ public class DoctorService {
         user.getRoles().add(RoleType.DOCTOR);
 
         return modelMapper.map(doctorRepository.save(doctor), DoctorResponseDto.class);
-    }
+    }*/
 }
